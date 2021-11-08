@@ -1,0 +1,38 @@
+#!/bin/bash
+
+red=$'\e[1;31m'
+grn=$'\e[1;32m'
+blu=$'\e[1;34m'
+mag=$'\e[1;35m'
+cyn=$'\e[1;36m'
+reset=$'\e[0m'
+
+Help()
+{
+	echo "Add description of the script functions here."
+	echo
+	echo "Syntax: scriptTemplate [$red-g$reset|$grn""h$reset|$blu""v$reset|$mag""V$reset]"
+	echo "options:"
+	echo $red"g     Print the GPL license notification."$reset
+	echo $grn"h     Print this Help."$reset
+	echo $blu"v     Verbose mode."$reset
+	echo $mag"V     Print software version and exit."$reset
+}
+
+while getopts ":hl" option; do
+	case $option in
+		h) # display Help
+			Help
+			exit;;
+
+		l)
+			echo "jel"
+			exit;;
+
+		\?) # incorrect option
+			echo "Error: Invalid option"
+			exit;;
+	esac
+done
+
+echo "hello"
